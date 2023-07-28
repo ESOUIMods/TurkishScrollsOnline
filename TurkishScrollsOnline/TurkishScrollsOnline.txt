@@ -2,8 +2,8 @@
 ## Author: Balgamov
 ## APIVersion: 101037 101038
 ## SavedVariables: TurkishScrollsOnlineVars
-## Version: 1.02
-## AddOnVersion: 102
+## Version: 1.03
+## AddOnVersion: 103
 ## Description: Elder Scrolls Online Türkçe Çeviri - Balgamov
 ## DependsOn: LibMediaProvider-1.0>=24
 
