@@ -5,14 +5,15 @@ TurkishScrollsOnline.version = "1.02"
 TurkishScrollsOnline.settings = TurkishScrollsOnline.defaults
 TurkishScrollsOnline.langString = nil
 TurkishScrollsOnline.positionning = false
-TurkishScrollsOnline.Flags = { "en", "tr"}
+TurkishScrollsOnline.Flags = { "en", "tr", "tb"}
 
 TurkishScrollsOnline.defaults = {
 	Enable	= true,
 	anchor	= {BOTTOMRIGHT, BOTTOMRIGHT, 0, 7},
 	Flags = {
-		["en"]	= true,
 		["tr"]	= true,
+		["tb"]	= true,
+		["en"]	= true,
 	}
 }
 
@@ -73,91 +74,6 @@ function TurkishScrollsOnline_Selected()
 	end
 end
 
-function TurkishScrollsOnline:getFontPath()
-  if GetCVar("language.2") == "tr" then
-    return "TurkishScrollsOnline/fonts/"
-  end
-  return "EsoUI/Common/Fonts/"
-end
-
-function TurkishScrollsOnline:fontChangeWhenInit()
-  local path = TurkishScrollsOnline:getFontPath()
-  local pair = { "ZO_TOOLTIP_STYLES", "ZO_CRAFTING_TOOLTIP_STYLES", "ZO_GAMEPAD_DYEING_TOOLTIP_STYLES" }
-  local function f(x) return path .. x end
-  local fontFaces = TurkishScrollsOnline.fontFaces
-
-  for _, v in pairs(pair) do for k, fnt in pairs(fontFaces[v]) do _G[v][k]["fontFace"] = f(fnt) end end
-
-  SetSCTKeyboardFont(f(fontFaces.UNI67) .. "|29|soft-shadow-thick")
-  SetSCTGamepadFont(f(fontFaces.UNI67) .. "|35|soft-shadow-thick")
-  SetNameplateKeyboardFont(f(fontFaces.UNI67), 4)
-  SetNameplateGamepadFont(f(fontFaces.UNI67), 4)
-
-  -- this is set up by TurkishScrollsOnline in fontFaces.lua
-  -- ["Univers 55"] = UNI55,
-  -- ["Univers 57"] = UNI57,
-  -- ["Univers 67"] = UNI67,
-  -- ["Skyrim Handwritten"] = HAND,
-  -- ["ProseAntique"] = ANTIQUE,
-  -- ["Trajan Pro"] = TRAJAN,
-  -- ["Futura Condensed"] = FTN57,
-  -- ["Futura Condensed Bold"] = FTN87,
-  -- ["Futura Condensed Light"] = FTN47,
-  for k, v in pairs(fontFaces.fonts) do
-    LMP.MediaTable.font[k] = nil
-    LMP:Register("font", k, f(v))
-  end
-  LMP:SetDefault("font", "Univers 57")
-
-  -- Loop through list and make sure it is using TurkishScrollsOnline Font
-  local uni57 = f(fontFaces.UNI57)
-  local uni47 = f(fontFaces.FTN47)
-  local fontList = {
-    "Arial Narrow",
-    "Consolas",
-    "ESO Cartographer",
-    "Fontin Bold",
-    "Fontin Italic",
-    "Fontin Regular",
-    "Fontin SmallCaps",
-    "Futura Condensed",
-  }
-  for i = 1, #fontList do
-    LMP.MediaTable.font[fontList[i]] = nil
-    LMP:Register("font", fontList[i], uni57)
-  end
-
-  -- do single because it is different
-  if LMP:Fetch("font", "Futura Light") ~= uni47 then
-    LMP.MediaTable.font["Futura Light"] = nil
-    LMP:Register("font", "Futura Light", uni47)
-  end
-
-  function ZO_TooltipStyledObject:GetFontString(...)
-    local fontFace = self:GetProperty("fontFace", ...)
-    local fontSize = self:GetProperty("fontSize", ...)
-
-    if fontFace == "$(GAMEPAD_LIGHT_FONT)" then fontFace = f(fontFaces.FTN47) end
-    if fontFace == "$(GAMEPAD_MEDIUM_FONT)" then fontFace = f(fontFaces.FTN57) end
-    if fontFace == "$(GAMEPAD_BOLD_FONT)" then fontFace = f(fontFaces.FTN87) end
-
-    if (fontFace and fontSize) then
-      if type(fontSize) == "number" then
-        fontSize = tostring(fontSize)
-      end
-
-      local fontStyle = self:GetProperty("fontStyle", ...)
-      if (fontStyle) then
-        return string.format("%s|%s|%s", fontFace, fontSize, fontStyle)
-      else
-        return string.format("%s|%s", fontFace, fontSize)
-      end
-    else
-      return "ZoFontGame"
-    end
-  end
-end
-
 function TurkishScrollsOnline:OnInit(eventCode, addOnName)
 	TurkishScrollsOnline.langString = GetCVar("language.2")
 	TurkishScrollsOnline.settings = ZO_SavedVars:New(TurkishScrollsOnline.name .. "_settings", 1, nil, TurkishScrollsOnline.defaults)
@@ -166,7 +82,6 @@ function TurkishScrollsOnline:OnInit(eventCode, addOnName)
 		ZO_CreateStringId("SI_BINDING_NAME_"..string.upper(flagCode), string.upper(flagCode))
 	end
 
-  TurkishScrollsOnline:fontChangeWhenInit()
 	TurkishScrollsOnline:RefreshUI()
 	TurkishScrollsOnlineUI:ClearAnchors()
 	TurkishScrollsOnlineUI:SetAnchor(TurkishScrollsOnline.settings.anchor[1], GuiRoot, TurkishScrollsOnline.settings.anchor[2], TurkishScrollsOnline.settings.anchor[3], TurkishScrollsOnline.settings.anchor[4])
