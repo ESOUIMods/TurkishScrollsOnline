@@ -19,12 +19,16 @@ TurkishScrollsOnline.defaults = {
 
 local confirmDialog = {
     title = { text = zo_iconFormat("TurkishScrollsOnline/images/".."tr.dds", 24, 24).." Turkish Scrolls Online "..zo_iconFormat("TurkishScrollsOnline/images/".."tr.dds", 24, 24)},
-    mainText = { text = "Bu mod herhangi bir kar amacı güdülerek oluşturulmamıştır. Hata ve önerileri bildirmek için Discord yoluyla ulaşabilirsiniz. Balgamov#5865 \"." },
+    mainText = { text = "Bu mod herhangi bir kar amacı güdülerek olu turulmamı tır. Hata ve önerileri bildirmek için Discord yoluyla ula abilirsiniz\nBalgamov#5865" },
     buttons = {
         { text = SI_DIALOG_ACCEPT, callback = functionToCall},
     }
 }
 ZO_Dialogs_RegisterCustomDialog("ADDON_DIALOG", confirmDialog )
+
+function TurkishScrollsOnline:TestDialog()
+  ZO_Dialogs_ShowDialog("ADDON_DIALOG")
+end
 
 if GetCVar("IgnorePatcherLanguageSetting") == "0" then
 	ZO_Dialogs_ShowDialog("ADDON_DIALOG")
@@ -37,8 +41,8 @@ function TurkishScrollsOnline_ChangeLanguage(lang)
     else
       SetCVar("IgnorePatcherLanguageSetting", 1)
     end
+    TurkishScrollsOnline.langString = lang
     SetCVar("language.2", lang)
-    d(msg)
   end
 end
 
@@ -54,6 +58,9 @@ function TurkishScrollsOnline:RefreshUI()
 			if flagControl:GetHandler("OnMouseDown") == nil then flagControl:SetHandler("OnMouseDown", function() TurkishScrollsOnline_ChangeLanguage(flagCode) end) end
 			GetControl("TurkishScrollsOnline_FlagControl_"..flagCode.."Texture"):SetTexture(flagTexture)
 		end
+		if TurkishScrollsOnline.langString ~= flagCode then
+      flagControl:SetAlpha(0.3)
+		end
 		if TurkishScrollsOnline.settings.Flags[flagCode] then
 			flagControl:ClearAnchors()
 			flagControl:SetAnchor(LEFT, TurkishScrollsOnlineUI, LEFT, 14 +count*34, 0)
@@ -64,7 +71,6 @@ function TurkishScrollsOnline:RefreshUI()
 	end
 	TurkishScrollsOnlineUI:SetDimensions(25 +count*34, 50)
 	TurkishScrollsOnlineUI:SetMouseEnabled(true)
-
 end
 
 function TurkishScrollsOnline_Selected()

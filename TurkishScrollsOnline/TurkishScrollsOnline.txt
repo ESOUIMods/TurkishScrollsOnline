@@ -5,7 +5,7 @@
 ## Version: 1.03
 ## AddOnVersion: 103
 ## Description: Elder Scrolls Online Türkçe Çeviri - Balgamov
-## DependsOn: LibMediaProvider-1.0>=24
+## DependsOn: LibMediaProvider-1.0>=25
 
 TurkishScrollsOnline.lua
 TurkishScrollsOnline.xml
