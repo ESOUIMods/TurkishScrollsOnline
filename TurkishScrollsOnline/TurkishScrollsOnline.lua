@@ -1,7 +1,7 @@
 local LMP = LibMediaProvider
 TurkishScrollsOnline = {}
 TurkishScrollsOnline.name  = "Turkish Scrolls Online"
-TurkishScrollsOnline.version = "1.10"
+TurkishScrollsOnline.version = "1.11"
 TurkishScrollsOnline.settings = TurkishScrollsOnline.defaults
 TurkishScrollsOnline.langString = nil
 TurkishScrollsOnline.positionning = false

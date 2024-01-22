@@ -1810,7 +1810,7 @@
 [SI_GLOBALERRORCODE304] = "{P:1810}Errore <<1>>\nBu hesaba başka bir giriş yapılmış."
 [SI_GLOBALERRORCODE305] = "{P:1811}Errore <<1>>\nProtokol eşleşmedi."
 [SI_GLOBALERRORCODE306] = "{P:1812}Errore <<1>>\nDünya kapatılmış."
-[SI_GLOBALERRORCODE307] = "{P:1813}Errore <<1>>\nSunucudan banlandınız."
+[SI_GLOBALERRORCODE307] = "{P:1813}Hata <<1>>\nSunucu bağlantınız kesildi, lütfen daha sonra tekrar deneyin."
 [SI_GLOBALERRORCODE308] = "{P:1814}Errore <<1>>\nHareketsizlik sebebiyle bağlantı koptu. (AFK)"
 [SI_GLOBALERRORCODE309] = "{P:1815}Errore <<1>>\nIP adresi eşleşmedi."
 [SI_GLOBALERRORCODE310] = "{P:1816}Errore <<1>>\nTransfer başarısız."

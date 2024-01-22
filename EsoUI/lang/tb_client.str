@@ -4134,7 +4134,7 @@
 [SI_GLOBALERRORCODE304] = "{C:4134}Errore <<1>>\nBu hesaba başka bir giriş yapılmış."
 [SI_GLOBALERRORCODE305] = "{C:4135}Errore <<1>>\nProtokol eşleşmedi."
 [SI_GLOBALERRORCODE306] = "{C:4136}Errore <<1>>\nDünya kapatılmış."
-[SI_GLOBALERRORCODE307] = "{C:4137}Errore <<1>>\nSunucudan banlandınız."
+[SI_GLOBALERRORCODE307] = "{C:4137}Hata <<1>>\nSunucu bağlantınız kesildi, lütfen daha sonra tekrar deneyin."
 [SI_GLOBALERRORCODE308] = "{C:4138}Errore <<1>>\nHareketsizlik sebebiyle bağlantı koptu. (AFK)"
 [SI_GLOBALERRORCODE309] = "{C:4139}Errore <<1>>\nIP adresi eşleşmedi."
 [SI_GLOBALERRORCODE310] = "{C:4140}Errore <<1>>\nTransfer başarısız."
