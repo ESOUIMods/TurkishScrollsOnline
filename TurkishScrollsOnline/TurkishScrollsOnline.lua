@@ -19,7 +19,7 @@ TurkishScrollsOnline.defaults = {
 
 local confirmDialog = {
     title = { text = zo_iconFormat("TurkishScrollsOnline/images/".."tr.dds", 24, 24).." Turkish Scrolls Online "..zo_iconFormat("TurkishScrollsOnline/images/".."tr.dds", 24, 24)},
-    mainText = { text = "Bu mod herhangi bir kar amacı güdülerek olu turulmamı tır. Hata ve önerileri bildirmek için Discord yoluyla ula abilirsiniz\nBalgamov#5865" },
+    mainText = { text = "Merhaba. ESC'ye bastıktan sonra sağ alt bölümde, ortada bulunan Türk bayrağına tıklayarak eklentimizi kullanmaya başlayabilirsiniz. Hata ve önerileri bildirmek için lütfen Discord yoluyla bize ulaşın.\nBalgamov & Sharlikran" },
     buttons = {
         { text = SI_DIALOG_ACCEPT, callback = functionToCall},
     }
