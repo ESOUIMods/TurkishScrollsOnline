@@ -2,18 +2,17 @@ local LMP = LibMediaProvider
 TurkishScrollsOnline = {}
 TurkishScrollsOnline.name  = "Turkish Scrolls Online"
 TurkishScrollsOnline.addonName  = "TurkishScrollsOnline"
-TurkishScrollsOnline.version = "1.18"
+TurkishScrollsOnline.version = "1.19"
 TurkishScrollsOnline.settings = TurkishScrollsOnline.defaults
 TurkishScrollsOnline.langString = nil
 TurkishScrollsOnline.positionning = false
-TurkishScrollsOnline.Flags = { "en", "tr", "tb"}
+TurkishScrollsOnline.Flags = { "en", "tr" }
 
 TurkishScrollsOnline.defaults = {
 	Enable	= true,
 	anchor	= {BOTTOMRIGHT, BOTTOMRIGHT, 0, 7},
 	Flags = {
 		["tr"]	= true,
-		["tb"]	= true,
 		["en"]	= true,
 	}
 }
