@@ -1,11 +1,11 @@
 ## Title: Turkish Scrolls Online - Türkçe Çeviri
 ## Author: Balgamov
-## APIVersion: 101044 101045
+## APIVersion: 101045 101046
 ## SavedVariables: TurkishScrollsOnlineVars
-## Version: 1.21
-## AddOnVersion: 121
+## Version: 1.22
+## AddOnVersion: 122
 ## Description: Elder Scrolls Online Türkçe Çeviri - Balgamov
-## DependsOn: LibMediaProvider-1.0>=33
+## DependsOn: LibMediaProvider>=34
 
 fontstrings_shared.xml
 backupfont_$(language).xml
